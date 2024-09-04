@@ -89,5 +89,13 @@ class DataLoader: ObservableObject {
         
         return drinks
     }
+    
+    func filterDrinks(data: [DrinksModel], searchText: String) -> [DrinksModel] {
+        if searchText.isEmpty {
+            return data
+        } else {
+            return data.filter { $0.strDrink?.localizedCaseInsensitiveContains(searchText) ?? false }
+        }
+    }
 }
 

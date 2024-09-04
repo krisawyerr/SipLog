@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38BE4D702C889F410098E0C7 /* drinks.json in Resources */ = {isa = PBXBuildFile; fileRef = 38BE4D6F2C889F400098E0C7 /* drinks.json */; };
+		38BE4D722C889F6F0098E0C7 /* DrinksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D712C889F6F0098E0C7 /* DrinksModel.swift */; };
+		38BE4D742C889F990098E0C7 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D732C889F990098E0C7 /* DataLoader.swift */; };
+		38BE4D792C88F7830098E0C7 /* BasePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D782C88F7830098E0C7 /* BasePreviewView.swift */; };
+		38BE4D7B2C88F7F50098E0C7 /* BaseDrinkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D7A2C88F7F50098E0C7 /* BaseDrinkListView.swift */; };
 		38BF01DF2C87E2A100DAC968 /* SipLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF01DE2C87E2A100DAC968 /* SipLogApp.swift */; };
 		38BF01E12C87E2A100DAC968 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF01E02C87E2A100DAC968 /* ContentView.swift */; };
 		38BF01E32C87E2A600DAC968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38BF01E22C87E2A600DAC968 /* Assets.xcassets */; };
@@ -15,6 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38BE4D6F2C889F400098E0C7 /* drinks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = drinks.json; sourceTree = "<group>"; };
+		38BE4D712C889F6F0098E0C7 /* DrinksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksModel.swift; sourceTree = "<group>"; };
+		38BE4D732C889F990098E0C7 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		38BE4D782C88F7830098E0C7 /* BasePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePreviewView.swift; sourceTree = "<group>"; };
+		38BE4D7A2C88F7F50098E0C7 /* BaseDrinkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDrinkListView.swift; sourceTree = "<group>"; };
 		38BF01DB2C87E2A100DAC968 /* SipLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SipLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38BF01DE2C87E2A100DAC968 /* SipLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SipLogApp.swift; sourceTree = "<group>"; };
 		38BF01E02C87E2A100DAC968 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +45,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38BE4D752C88F6AB0098E0C7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				38BF01E02C87E2A100DAC968 /* ContentView.swift */,
+				38BE4D782C88F7830098E0C7 /* BasePreviewView.swift */,
+				38BE4D7A2C88F7F50098E0C7 /* BaseDrinkListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		38BE4D762C88F6B90098E0C7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				38BE4D712C889F6F0098E0C7 /* DrinksModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38BE4D772C88F6C10098E0C7 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				38BE4D732C889F990098E0C7 /* DataLoader.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		38BF01D22C87E2A000DAC968 = {
 			isa = PBXGroup;
 			children = (
@@ -54,11 +90,14 @@
 		38BF01DD2C87E2A100DAC968 /* SipLog */ = {
 			isa = PBXGroup;
 			children = (
-				38BF01EE2C87E5A400DAC968 /* Info.plist */,
 				38BF01DE2C87E2A100DAC968 /* SipLogApp.swift */,
-				38BF01E02C87E2A100DAC968 /* ContentView.swift */,
-				38BF01EC2C87E58400DAC968 /* PaytoneOne-Regular.ttf */,
+				38BE4D762C88F6B90098E0C7 /* Model */,
+				38BE4D752C88F6AB0098E0C7 /* View */,
+				38BE4D772C88F6C10098E0C7 /* View Model */,
 				38BF01E22C87E2A600DAC968 /* Assets.xcassets */,
+				38BF01EE2C87E5A400DAC968 /* Info.plist */,
+				38BE4D6F2C889F400098E0C7 /* drinks.json */,
+				38BF01EC2C87E58400DAC968 /* PaytoneOne-Regular.ttf */,
 				38BF01E42C87E2A600DAC968 /* Preview Content */,
 			);
 			path = SipLog;
@@ -132,6 +171,7 @@
 			files = (
 				38BF01ED2C87E58400DAC968 /* PaytoneOne-Regular.ttf in Resources */,
 				38BF01E62C87E2A600DAC968 /* Preview Assets.xcassets in Resources */,
+				38BE4D702C889F410098E0C7 /* drinks.json in Resources */,
 				38BF01E32C87E2A600DAC968 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,7 +183,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38BE4D7B2C88F7F50098E0C7 /* BaseDrinkListView.swift in Sources */,
+				38BE4D742C889F990098E0C7 /* DataLoader.swift in Sources */,
+				38BE4D792C88F7830098E0C7 /* BasePreviewView.swift in Sources */,
 				38BF01E12C87E2A100DAC968 /* ContentView.swift in Sources */,
+				38BE4D722C889F6F0098E0C7 /* DrinksModel.swift in Sources */,
 				38BF01DF2C87E2A100DAC968 /* SipLogApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

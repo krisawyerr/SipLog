@@ -14,23 +14,6 @@ struct ContentView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
-                    HStack(alignment: .center) {
-                        Image("Logo")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 25)
-                        Text("SipLog")
-                            .font(.custom("PaytoneOne-Regular", size: 25))
-                            .foregroundColor(Color("LogoColor"))
-                    }
-                    
-                    Text(dataLoader.currentDate)
-                        .font(.custom("PaytoneOne-Regular", size: 25))
-                        .foregroundColor(Color.gray)
-                        .padding(.bottom, 10.0)
-                    
-                    Divider()
-                    
                     Text("Sip of the Moment:")
                         .font(.custom("PaytoneOne-Regular", size: 25))
                         .foregroundColor(Color("LogoColor"))
@@ -68,12 +51,27 @@ struct ContentView: View {
                 .padding(.vertical, 10.0)
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
-
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    HStack {
+                        Image("Logo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 25)
+                        Text("SipLog")
+                            .font(.custom("PaytoneOne-Regular", size: 25))
+                            .foregroundColor(Color("LogoColor"))
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Text(dataLoader.currentDate)
+                        .font(.custom("PaytoneOne-Regular", size: 25))
+                        .foregroundColor(Color.gray)
+                }
+            }
         }
-        
     }
 }
-
 
 #Preview {
     ContentView()

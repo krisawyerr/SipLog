@@ -18,13 +18,8 @@ struct BaseDrinkListView: View {
     }
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
-                Text("\(base) Cocktails")
-                    .font(.custom("PaytoneOne-Regular", size: 25))
-                    .foregroundColor(Color("LogoColor"))
-                    .padding(.bottom, 10.0)
-                
+        VStack(alignment: .leading, spacing: 0) {
+            ScrollView {
                 VStack {
                     ForEach(drinks, id: \.idDrink) { drink in
                         HStack(spacing: 0) {
@@ -68,50 +63,43 @@ struct BaseDrinkListView: View {
                         .cornerRadius(10)
                     }
                 }
+                .padding(.horizontal, 25.0)
             }
-            .padding(.horizontal, 25.0)
-            .padding(.vertical, 10.0)
-            .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .searchable(text: $searchText, prompt: "Search for a drink.")
         .navigationBarBackButtonHidden(true)
+        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for a drink")
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
-                }) {
+                }, label: {
                     HStack {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(Color.gray)
+                        Image(systemName: "chevron.backward")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .padding(.trailing, 5.0)
+                            .frame(height: 25)
+                            .foregroundColor(Color("LogoColor"))
+                        Image("Logo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 25)
+                        Text("SipLog")
+                            .font(.custom("PaytoneOne-Regular", size: 25))
+                            .foregroundColor(Color("LogoColor"))
                     }
-                }
+                })
             }
-            
-            ToolbarItem(placement: .principal) {
-                HStack {
-                    Image("Logo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 25)
-                    Text("SipLog")
-                        .font(.custom("PaytoneOne-Regular", size: 25))
-                        .foregroundColor(Color("LogoColor"))
-                }
-                .frame(maxWidth: .infinity)
-            }
-            
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
-                    print("Custom button action")
-                }) {
-                    Image(systemName: "plus")
-                }
-                .foregroundColor(Color("LogoColor"))
+                Text("\(base) Cocktails")
+                    .font(.custom("PaytoneOne-Regular", size: 17))
+                    .foregroundColor(Color.gray)
             }
         }
     }
 }
 
-//#Preview {
+#Preview {
 //    BaseDrinkListView(base: "Gin")
-//}
+    MainView()
+}

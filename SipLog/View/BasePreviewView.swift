@@ -35,33 +35,37 @@ struct BasePreviewView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack() {
                     ForEach(drinks) { drink in
-                        HStack(spacing: 0) {
-                            AsyncImage(url: URL(string: drink.strDrinkThumb ?? "")) { image in
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                            } placeholder: {
-                                ProgressView()
+                        ZStack {
+                            HStack(spacing: 0) {
+                                AsyncImage(url: URL(string: drink.strDrinkThumb ?? "")) { image in
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                
+                                VStack(alignment: .leading) {
+                                    Text(drink.strDrink ?? "Unknown Drink")
+                                        .font(.custom("PaytoneOne-Regular", size: 15))
+                                        .foregroundColor(Color("BWText"))
+                                        .multilineTextAlignment(.center)
+                                        .frame(maxWidth: .infinity)
+                                    Text(drink.strCategory ?? "Unknown Drink")
+                                        .font(.system(size: 15))
+                                        .foregroundColor(Color("BWText"))
+                                        .multilineTextAlignment(.center)
+                                        .frame(maxWidth: .infinity)
+                                }
+                                .padding(.horizontal, 10.0)
+                                .frame(maxWidth: .infinity, maxHeight: 300)
                             }
+                            .frame(width: 250, height: 100)
+                            .background(Color("BWAccent"))
+                            .cornerRadius(10)
                             
-                            VStack(alignment: .leading) {
-                                Text(drink.strDrink ?? "Unknown Drink")
-                                    .font(.custom("PaytoneOne-Regular", size: 15))
-                                    .foregroundColor(Color("BWText"))
-                                    .multilineTextAlignment(.center)
-                                    .frame(maxWidth: .infinity)
-                                Text(drink.strCategory ?? "Unknown Drink")
-                                    .font(.system(size: 15))
-                                    .foregroundColor(Color("BWText"))
-                                    .multilineTextAlignment(.center)
-                                    .frame(maxWidth: .infinity)
-                            }
-                            .padding(.horizontal, 10.0)
-                            .frame(maxWidth: .infinity, maxHeight: 300)
+                            DrinkInfoButtonView(drink: drink)
                         }
-                        .frame(width: 250, height: 100)
-                        .background(Color("BWAccent"))
-                        .cornerRadius(10)
                     }
                     
                 }
@@ -71,7 +75,7 @@ struct BasePreviewView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
-
+ 
 #Preview {
-    BasePreviewView(title: "Gin")
+    MainView()
 }

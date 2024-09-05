@@ -8,11 +8,68 @@
 import SwiftUI
 
 struct DrinkInfoView: View {
+    @Environment(\.dismiss) var dismiss
+    @StateObject var dataLoader = DataLoader()
+    var drink: DrinksModel
+    var ingredients: [String] {
+        dataLoader.listIngredients(drink: drink)
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            AsyncImage(url: URL(string: drink.strDrinkThumb!)) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            } placeholder: {
+                ProgressView()
+            }
+            
+            VStack(alignment: .leading) {
+                HStack(spacing: 0) {
+                    VStack(alignment: .leading) {
+                        Text(drink.strDrink ?? "Unknown Drink")
+                            .font(.custom("PaytoneOne-Regular", size: 25))
+                            .foregroundColor(Color("BWText"))
+                        Text(drink.strCategory ?? "Unknown Category")
+                            .font(.system(size: 25))
+                            .foregroundColor(Color("BWText"))
+                    }
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        print("Custom button action")
+                    }) {
+                        Image(systemName: "plus")
+                    }
+                    .padding(5.0)
+                    .foregroundColor(Color("BWAccent"))
+                    .background(Color("LogoColor"))
+                    .cornerRadius(5)
+                }
+                
+                Divider()
+                    .frame(height: 1)
+                    .background(Color("LogoColor"))
+
+                    
+                Text("Ingredients:")
+                    .font(.custom("PaytoneOne-Regular", size: 25))
+                    .foregroundColor(Color("BWText"))
+                
+                ForEach(ingredients, id: \.self) { ingredient in
+                    Text(ingredient)
+                        .font(.system(size: 25))
+                        .foregroundColor(Color("BWText"))
+                }
+            }
+            .padding(.horizontal, 25.0)
+            .frame(maxWidth: .infinity)
+        }
     }
 }
 
 #Preview {
-    DrinkInfoView()
+    ContentView()
 }

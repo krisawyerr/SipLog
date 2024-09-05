@@ -19,26 +19,32 @@ struct ContentView: View {
                         .foregroundColor(Color("LogoColor"))
                         .padding(.vertical, 5.0)
                     
-                    VStack(alignment: .leading, spacing: 10) {
-                        AsyncImage(url: URL(string: dataLoader.picSOTM().strDrinkThumb!)) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                        } placeholder: {
-                            ProgressView()
+                    ZStack {
+                        VStack(alignment: .leading, spacing: 10) {
+                            AsyncImage(url: URL(string: dataLoader.picSOTM().strDrinkThumb!)) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            
+                            Text(dataLoader.picSOTM().strDrink!)
+                                .font(.system(size: 25))
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color("BWText"))
+                                .padding([.leading, .bottom, .trailing], 10.0)
+                            
                         }
+                        .background(Color("BWAccent"))
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
                         
-                        Text(dataLoader.picSOTM().strDrink!)
-                            .font(.system(size: 25))
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color("BWText"))
-                            .padding([.leading, .bottom, .trailing], 10.0)
-                        
+                        DrinkInfoButtonView(drink: dataLoader.picSOTM())
                     }
-                    .background(Color("BWAccent"))
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
                     
                     Divider()
+                        .frame(height: 1)
+                        .background(Color("LogoColor"))
                         .padding(.top)
                     
                     BasePreviewView(title: "Vodka")

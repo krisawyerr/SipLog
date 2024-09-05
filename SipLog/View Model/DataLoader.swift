@@ -63,7 +63,6 @@ class DataLoader: ObservableObject {
         return drinks
     }
     
-    
     func fetchCocktails(base: String, amountOfItems: Int) -> [DrinksModel] {
         var drinks: [DrinksModel] = []
         
@@ -96,6 +95,31 @@ class DataLoader: ObservableObject {
         } else {
             return data.filter { $0.strDrink?.localizedCaseInsensitiveContains(searchText) ?? false }
         }
+    }
+    
+    func listIngredients(drink: DrinksModel) -> [String] {
+        var ingredients:[String] = []
+        let ingredientSlots:[String] = [
+            drink.strIngredient1!,
+            drink.strIngredient2!,
+            drink.strIngredient3!,
+            drink.strIngredient4!,
+            drink.strIngredient5!,
+            drink.strIngredient6!,
+            drink.strIngredient7!,
+            drink.strIngredient8!,
+            drink.strIngredient9!,
+            drink.strIngredient10!,
+            drink.strIngredient11!
+        ]
+        
+        for ingredient in ingredientSlots {
+            if ingredient != "null" {
+                ingredients.append(ingredient)
+            }
+        }
+        
+        return ingredients
     }
 }
 

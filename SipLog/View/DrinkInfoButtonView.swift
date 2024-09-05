@@ -8,11 +8,23 @@
 import SwiftUI
 
 struct DrinkInfoButtonView: View {
+    @State private var isHalfScreenModalPresented = false
+    var drink: DrinksModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {
+            isHalfScreenModalPresented = true
+        }) {
+            Text("")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .sheet(isPresented: $isHalfScreenModalPresented) {
+            DrinkInfoView(drink: drink)
+                .presentationDetents([.fraction(0.8)])
+        }
     }
 }
 
 #Preview {
-    DrinkInfoButtonView()
+    ContentView()
 }

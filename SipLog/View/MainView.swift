@@ -12,22 +12,19 @@ struct MainView: View {
             TabView {
                 ContentView()
                     .tabItem {
-                        Image(systemName: "1.circle")
-                        Text("Screen 1")
+                        Image(systemName: "house.fill")
                     }
 
                 AllDrinksListView()
                     .tabItem {
-                        Image(systemName: "2.circle")
-                        Text("Screen 2")
+                        Image(systemName: "magnifyingglass")
                     }
 
                 ScreenThreeView()
                     .tabItem {
-                        Image(systemName: "3.circle")
-                        Text("Screen 3")
-                    }
+                        Image(systemName: "person.crop.circle.fill")                    }
             }
+            .accentColor(Color("LogoColor"))
             .navigationTitle("Details")
         }
     }

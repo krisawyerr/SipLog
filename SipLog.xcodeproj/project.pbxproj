@@ -16,6 +16,9 @@
 		38BE4D7F2C8924040098E0C7 /* AllDrinksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D7E2C8924040098E0C7 /* AllDrinksListView.swift */; };
 		38BE4D812C8A02C60098E0C7 /* DrinkInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D802C8A02C60098E0C7 /* DrinkInfoView.swift */; };
 		38BE4D852C8A03DA0098E0C7 /* DrinkInfoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D842C8A03DA0098E0C7 /* DrinkInfoButtonView.swift */; };
+		38BE4D882C8A2D100098E0C7 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 38BE4D872C8A2D100098E0C7 /* SQLite */; };
+		38BE4D8A2C8A2D8C0098E0C7 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D892C8A2D8C0098E0C7 /* Database.swift */; };
+		38BE4D8C2C8A30290098E0C7 /* MyDrinksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D8B2C8A30290098E0C7 /* MyDrinksModel.swift */; };
 		38BF01DF2C87E2A100DAC968 /* SipLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF01DE2C87E2A100DAC968 /* SipLogApp.swift */; };
 		38BF01E12C87E2A100DAC968 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF01E02C87E2A100DAC968 /* ContentView.swift */; };
 		38BF01E32C87E2A600DAC968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38BF01E22C87E2A600DAC968 /* Assets.xcassets */; };
@@ -33,6 +36,8 @@
 		38BE4D7E2C8924040098E0C7 /* AllDrinksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDrinksListView.swift; sourceTree = "<group>"; };
 		38BE4D802C8A02C60098E0C7 /* DrinkInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkInfoView.swift; sourceTree = "<group>"; };
 		38BE4D842C8A03DA0098E0C7 /* DrinkInfoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkInfoButtonView.swift; sourceTree = "<group>"; };
+		38BE4D892C8A2D8C0098E0C7 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		38BE4D8B2C8A30290098E0C7 /* MyDrinksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDrinksModel.swift; sourceTree = "<group>"; };
 		38BF01DB2C87E2A100DAC968 /* SipLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SipLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38BF01DE2C87E2A100DAC968 /* SipLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SipLogApp.swift; sourceTree = "<group>"; };
 		38BF01E02C87E2A100DAC968 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38BE4D882C8A2D100098E0C7 /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				38BE4D712C889F6F0098E0C7 /* DrinksModel.swift */,
+				38BE4D8B2C8A30290098E0C7 /* MyDrinksModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -79,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				38BE4D732C889F990098E0C7 /* DataLoader.swift */,
+				38BE4D892C8A2D8C0098E0C7 /* Database.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -139,6 +147,9 @@
 			dependencies = (
 			);
 			name = SipLog;
+			packageProductDependencies = (
+				38BE4D872C8A2D100098E0C7 /* SQLite */,
+			);
 			productName = SipLog;
 			productReference = 38BF01DB2C87E2A100DAC968 /* SipLog.app */;
 			productType = "com.apple.product-type.application";
@@ -167,6 +178,9 @@
 				Base,
 			);
 			mainGroup = 38BF01D22C87E2A000DAC968;
+			packageReferences = (
+				38BE4D862C8A2D100098E0C7 /* XCRemoteSwiftPackageReference "SQLite" */,
+			);
 			productRefGroup = 38BF01DC2C87E2A100DAC968 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -195,7 +209,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38BE4D8C2C8A30290098E0C7 /* MyDrinksModel.swift in Sources */,
 				38BE4D7B2C88F7F50098E0C7 /* BaseDrinkListView.swift in Sources */,
+				38BE4D8A2C8A2D8C0098E0C7 /* Database.swift in Sources */,
 				38BE4D7D2C891ECC0098E0C7 /* MainView.swift in Sources */,
 				38BE4D742C889F990098E0C7 /* DataLoader.swift in Sources */,
 				38BE4D852C8A03DA0098E0C7 /* DrinkInfoButtonView.swift in Sources */,
@@ -412,6 +428,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		38BE4D862C8A2D100098E0C7 /* XCRemoteSwiftPackageReference "SQLite" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.15.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		38BE4D872C8A2D100098E0C7 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38BE4D862C8A2D100098E0C7 /* XCRemoteSwiftPackageReference "SQLite" */;
+			productName = SQLite;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 38BF01D32C87E2A000DAC968 /* Project object */;
 }

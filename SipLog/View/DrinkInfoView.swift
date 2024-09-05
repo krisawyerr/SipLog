@@ -10,6 +10,7 @@ import SwiftUI
 struct DrinkInfoView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var dataLoader = DataLoader()
+    var db = Database()
     var drink: DrinksModel
     var ingredients: [String] {
         dataLoader.listIngredients(drink: drink)
@@ -40,6 +41,7 @@ struct DrinkInfoView: View {
                     
                     Button(action: {
                         print("Custom button action")
+                        db.insertDrink(drink: drink)
                     }) {
                         Image(systemName: "plus")
                     }

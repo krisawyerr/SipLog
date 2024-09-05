@@ -29,15 +29,35 @@ struct MainView: View {
         }
     }
 
-    struct ScreenThreeView: View {
-        var body: some View {
-            VStack {
-                Text("Screen 3")
-                    .font(.largeTitle)
-                    .padding()
+struct ScreenThreeView: View {
+    var db = Database()
+    
+    @State var myDrinks: [MyDrinksModel] = []
+    func getMyDrinks() {
+        myDrinks = db.query()
+    }
+    
+    var body: some View {
+        VStack {
+            ForEach(myDrinks) { drink in
+                HStack {
+                    Text(drink.strDrink)
+                    Text("\(drink.id)")
+                    Text(drink.idDrink)
+                    Button(action: {
+                        db.delete(drink: drink)
+                        getMyDrinks()
+                    }, label: {
+                        Text("Delete")
+                    })
+                }
             }
         }
+        .onAppear {
+            getMyDrinks()
+        }
     }
+}
 
 
 #Preview {

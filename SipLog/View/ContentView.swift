@@ -19,7 +19,7 @@ struct ContentView: View {
                         .foregroundColor(Color("LogoColor"))
                         .padding(.vertical, 5.0)
                     
-                    NavigationLink(destination: DrinkInfoView(drink: dataLoader.picSOTM(), getDrinks: {})) {
+                    NavigationLink(destination: DrinkInfoView(drink: dataLoader.picSOTM())) {
                         VStack(alignment: .leading, spacing: 10) {
                             AsyncImage(url: URL(string: dataLoader.picSOTM().strDrinkThumb!)) { image in
                                 image

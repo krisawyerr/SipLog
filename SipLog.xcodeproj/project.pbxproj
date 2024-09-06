@@ -15,7 +15,6 @@
 		38BE4D7D2C891ECC0098E0C7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D7C2C891ECC0098E0C7 /* MainView.swift */; };
 		38BE4D7F2C8924040098E0C7 /* AllDrinksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D7E2C8924040098E0C7 /* AllDrinksListView.swift */; };
 		38BE4D812C8A02C60098E0C7 /* DrinkInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D802C8A02C60098E0C7 /* DrinkInfoView.swift */; };
-		38BE4D852C8A03DA0098E0C7 /* DrinkInfoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D842C8A03DA0098E0C7 /* DrinkInfoButtonView.swift */; };
 		38BE4D882C8A2D100098E0C7 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 38BE4D872C8A2D100098E0C7 /* SQLite */; };
 		38BE4D8A2C8A2D8C0098E0C7 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D892C8A2D8C0098E0C7 /* Database.swift */; };
 		38BE4D8C2C8A30290098E0C7 /* MyDrinksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D8B2C8A30290098E0C7 /* MyDrinksModel.swift */; };
@@ -38,7 +37,6 @@
 		38BE4D7C2C891ECC0098E0C7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		38BE4D7E2C8924040098E0C7 /* AllDrinksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDrinksListView.swift; sourceTree = "<group>"; };
 		38BE4D802C8A02C60098E0C7 /* DrinkInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkInfoView.swift; sourceTree = "<group>"; };
-		38BE4D842C8A03DA0098E0C7 /* DrinkInfoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkInfoButtonView.swift; sourceTree = "<group>"; };
 		38BE4D892C8A2D8C0098E0C7 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		38BE4D8B2C8A30290098E0C7 /* MyDrinksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDrinksModel.swift; sourceTree = "<group>"; };
 		38BE4D8D2C8A6BBE0098E0C7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -76,7 +74,6 @@
 				38BE4D7C2C891ECC0098E0C7 /* MainView.swift */,
 				38BE4D7E2C8924040098E0C7 /* AllDrinksListView.swift */,
 				38BE4D802C8A02C60098E0C7 /* DrinkInfoView.swift */,
-				38BE4D842C8A03DA0098E0C7 /* DrinkInfoButtonView.swift */,
 				38BE4D912C8A9AD20098E0C7 /* NotTriedDrinksView.swift */,
 			);
 			path = View;
@@ -224,7 +221,6 @@
 				38BE4D8A2C8A2D8C0098E0C7 /* Database.swift in Sources */,
 				38BE4D7D2C891ECC0098E0C7 /* MainView.swift in Sources */,
 				38BE4D742C889F990098E0C7 /* DataLoader.swift in Sources */,
-				38BE4D852C8A03DA0098E0C7 /* DrinkInfoButtonView.swift in Sources */,
 				38BE4D922C8A9AD30098E0C7 /* NotTriedDrinksView.swift in Sources */,
 				38BE4D792C88F7830098E0C7 /* BasePreviewView.swift in Sources */,
 				38BF01E12C87E2A100DAC968 /* ContentView.swift in Sources */,

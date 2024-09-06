@@ -23,7 +23,7 @@ struct BaseDrinkListView: View {
             ScrollView {
                 LazyVStack {
                     ForEach(drinks, id: \.idDrink) { drink in
-                        NavigationLink(destination: DrinkInfoView(drink: drink, getDrinks: {})) {
+                        NavigationLink(destination: DrinkInfoView(drink: drink)) {
                             HStack(spacing: 0) {
                                 AsyncImage(url: URL(string: drink.strDrinkThumb ?? "")) { image in
                                     image

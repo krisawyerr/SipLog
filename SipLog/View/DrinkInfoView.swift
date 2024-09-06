@@ -15,7 +15,6 @@ struct DrinkInfoView: View {
     var ingredients: [String] {
         dataLoader.listIngredients(drink: drink)
     }
-    var getDrinks: () -> Void
     
     var body: some View {
         
@@ -43,7 +42,7 @@ struct DrinkInfoView: View {
                     
                     Button(action: {
                         db.insertDrink(drink: drink)
-                        getDrinks()
+                        presentationMode.wrappedValue.dismiss()
                     }) {
                         Image(systemName: "plus")
                     }

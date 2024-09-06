@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DrinkInfoView: View {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.presentationMode) var presentationMode
     @StateObject var dataLoader = DataLoader()
     var db = Database()
     var drink: DrinksModel
@@ -18,6 +18,7 @@ struct DrinkInfoView: View {
     var getDrinks: () -> Void
     
     var body: some View {
+        
         ScrollView {
             AsyncImage(url: URL(string: drink.strDrinkThumb!)) { image in
                 image
@@ -43,7 +44,6 @@ struct DrinkInfoView: View {
                     Button(action: {
                         db.insertDrink(drink: drink)
                         getDrinks()
-                        dismiss() 
                     }) {
                         Image(systemName: "plus")
                     }
@@ -69,6 +69,30 @@ struct DrinkInfoView: View {
             }
             .padding(.horizontal, 25.0)
             .frame(maxWidth: .infinity)
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    HStack {
+                        Image(systemName: "chevron.backward")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .padding(.trailing, 5.0)
+                            .frame(height: 25)
+                            .foregroundColor(Color("LogoColor"))
+                        Image("Logo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 25)
+                        Text("SipLog")
+                            .font(.custom("PaytoneOne-Regular", size: 25))
+                            .foregroundColor(Color("LogoColor"))
+                    }
+                })
+            }
         }
     }
 }

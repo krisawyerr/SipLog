@@ -21,9 +21,9 @@ struct BaseDrinkListView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             ScrollView {
-                VStack {
+                LazyVStack {
                     ForEach(drinks, id: \.idDrink) { drink in
-                        ZStack {
+                        NavigationLink(destination: DrinkInfoView(drink: drink, getDrinks: {})) {
                             HStack(spacing: 0) {
                                 AsyncImage(url: URL(string: drink.strDrinkThumb ?? "")) { image in
                                     image
@@ -53,8 +53,6 @@ struct BaseDrinkListView: View {
                             .frame(height: 100)
                             .background(Color("BWAccent"))
                             .cornerRadius(10)
-                            
-                            DrinkInfoButtonView(drink: drink, getDrinks: {})
                         }
                     }
                 }

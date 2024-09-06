@@ -20,7 +20,7 @@ struct MyDrinksView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             ScrollView {
-                VStack {
+                LazyVStack {
                     ForEach(drinks, id: \.idDrink) { drink in
                         ZStack {
                             HStack(spacing: 0) {

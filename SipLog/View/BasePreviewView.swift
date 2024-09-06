@@ -35,7 +35,7 @@ struct BasePreviewView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack() {
                     ForEach(drinks) { drink in
-                        ZStack {
+                        NavigationLink(destination: DrinkInfoView(drink: drink, getDrinks: {})) {
                             HStack(spacing: 0) {
                                 AsyncImage(url: URL(string: drink.strDrinkThumb ?? "")) { image in
                                     image
@@ -63,8 +63,6 @@ struct BasePreviewView: View {
                             .frame(width: 250, height: 100)
                             .background(Color("BWAccent"))
                             .cornerRadius(10)
-                            
-                            DrinkInfoButtonView(drink: drink, getDrinks: {})
                         }
                     }
                     

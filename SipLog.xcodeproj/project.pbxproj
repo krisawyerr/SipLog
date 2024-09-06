@@ -19,6 +19,9 @@
 		38BE4D882C8A2D100098E0C7 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 38BE4D872C8A2D100098E0C7 /* SQLite */; };
 		38BE4D8A2C8A2D8C0098E0C7 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D892C8A2D8C0098E0C7 /* Database.swift */; };
 		38BE4D8C2C8A30290098E0C7 /* MyDrinksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D8B2C8A30290098E0C7 /* MyDrinksModel.swift */; };
+		38BE4D8E2C8A6BBE0098E0C7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D8D2C8A6BBE0098E0C7 /* ProfileView.swift */; };
+		38BE4D902C8A88130098E0C7 /* MyDrinksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D8F2C8A88130098E0C7 /* MyDrinksView.swift */; };
+		38BE4D922C8A9AD30098E0C7 /* NotTriedDrinksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BE4D912C8A9AD20098E0C7 /* NotTriedDrinksView.swift */; };
 		38BF01DF2C87E2A100DAC968 /* SipLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF01DE2C87E2A100DAC968 /* SipLogApp.swift */; };
 		38BF01E12C87E2A100DAC968 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF01E02C87E2A100DAC968 /* ContentView.swift */; };
 		38BF01E32C87E2A600DAC968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38BF01E22C87E2A600DAC968 /* Assets.xcassets */; };
@@ -38,6 +41,9 @@
 		38BE4D842C8A03DA0098E0C7 /* DrinkInfoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkInfoButtonView.swift; sourceTree = "<group>"; };
 		38BE4D892C8A2D8C0098E0C7 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		38BE4D8B2C8A30290098E0C7 /* MyDrinksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDrinksModel.swift; sourceTree = "<group>"; };
+		38BE4D8D2C8A6BBE0098E0C7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		38BE4D8F2C8A88130098E0C7 /* MyDrinksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDrinksView.swift; sourceTree = "<group>"; };
+		38BE4D912C8A9AD20098E0C7 /* NotTriedDrinksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotTriedDrinksView.swift; sourceTree = "<group>"; };
 		38BF01DB2C87E2A100DAC968 /* SipLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SipLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38BF01DE2C87E2A100DAC968 /* SipLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SipLogApp.swift; sourceTree = "<group>"; };
 		38BF01E02C87E2A100DAC968 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +68,8 @@
 		38BE4D752C88F6AB0098E0C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				38BE4D8D2C8A6BBE0098E0C7 /* ProfileView.swift */,
+				38BE4D8F2C8A88130098E0C7 /* MyDrinksView.swift */,
 				38BF01E02C87E2A100DAC968 /* ContentView.swift */,
 				38BE4D782C88F7830098E0C7 /* BasePreviewView.swift */,
 				38BE4D7A2C88F7F50098E0C7 /* BaseDrinkListView.swift */,
@@ -69,6 +77,7 @@
 				38BE4D7E2C8924040098E0C7 /* AllDrinksListView.swift */,
 				38BE4D802C8A02C60098E0C7 /* DrinkInfoView.swift */,
 				38BE4D842C8A03DA0098E0C7 /* DrinkInfoButtonView.swift */,
+				38BE4D912C8A9AD20098E0C7 /* NotTriedDrinksView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,12 +220,15 @@
 			files = (
 				38BE4D8C2C8A30290098E0C7 /* MyDrinksModel.swift in Sources */,
 				38BE4D7B2C88F7F50098E0C7 /* BaseDrinkListView.swift in Sources */,
+				38BE4D8E2C8A6BBE0098E0C7 /* ProfileView.swift in Sources */,
 				38BE4D8A2C8A2D8C0098E0C7 /* Database.swift in Sources */,
 				38BE4D7D2C891ECC0098E0C7 /* MainView.swift in Sources */,
 				38BE4D742C889F990098E0C7 /* DataLoader.swift in Sources */,
 				38BE4D852C8A03DA0098E0C7 /* DrinkInfoButtonView.swift in Sources */,
+				38BE4D922C8A9AD30098E0C7 /* NotTriedDrinksView.swift in Sources */,
 				38BE4D792C88F7830098E0C7 /* BasePreviewView.swift in Sources */,
 				38BF01E12C87E2A100DAC968 /* ContentView.swift in Sources */,
+				38BE4D902C8A88130098E0C7 /* MyDrinksView.swift in Sources */,
 				38BE4D812C8A02C60098E0C7 /* DrinkInfoView.swift in Sources */,
 				38BE4D7F2C8924040098E0C7 /* AllDrinksListView.swift in Sources */,
 				38BE4D722C889F6F0098E0C7 /* DrinksModel.swift in Sources */,

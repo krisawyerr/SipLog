@@ -20,7 +20,7 @@ struct MainView: View {
                         Image(systemName: "magnifyingglass")
                     }
 
-                ScreenThreeView()
+                ProfileView()
                     .tabItem {
                         Image(systemName: "person.crop.circle.fill")                    }
             }
@@ -28,37 +28,6 @@ struct MainView: View {
             .navigationTitle("Details")
         }
     }
-
-struct ScreenThreeView: View {
-    var db = Database()
-    
-    @State var myDrinks: [MyDrinksModel] = []
-    func getMyDrinks() {
-        myDrinks = db.query()
-    }
-    
-    var body: some View {
-        VStack {
-            ForEach(myDrinks) { drink in
-                HStack {
-                    Text(drink.strDrink)
-                    Text("\(drink.id)")
-                    Text(drink.idDrink)
-                    Button(action: {
-                        db.delete(drink: drink)
-                        getMyDrinks()
-                    }, label: {
-                        Text("Delete")
-                    })
-                }
-            }
-        }
-        .onAppear {
-            getMyDrinks()
-        }
-    }
-}
-
 
 #Preview {
     MainView()

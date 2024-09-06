@@ -9,6 +9,7 @@ import Foundation
 
 class DataLoader: ObservableObject {
     @Published var data: [DrinksModel] = []
+    var db = Database()
     var sotmIndex: Int = 0
 
      init() {
@@ -89,11 +90,31 @@ class DataLoader: ObservableObject {
         return drinks
     }
     
+    func fetchNotTriedCocktails() -> [DrinksModel] {
+        var drinks: [DrinksModel] = []
+        
+        for drink in data {
+            if !db.fetchMyDrinkIDs().contains(drink.idDrink!) {
+                drinks.append(drink)
+            }
+        }
+        
+        return drinks
+    }
+    
     func filterDrinks(data: [DrinksModel], searchText: String) -> [DrinksModel] {
         if searchText.isEmpty {
             return data
         } else {
             return data.filter { $0.strDrink?.localizedCaseInsensitiveContains(searchText) ?? false }
+        }
+    }
+    
+    func filterDrinks(data: [MyDrinksModel], searchText: String) -> [MyDrinksModel] {
+        if searchText.isEmpty {
+            return data
+        } else {
+            return data.filter { $0.strDrink.localizedCaseInsensitiveContains(searchText)}
         }
     }
     

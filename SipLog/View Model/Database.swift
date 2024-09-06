@@ -86,52 +86,56 @@ class Database {
     }
 
     func insertDrink(drink: DrinksModel) {
-        do {
-            let table = Table("MyDrinks")
-            let idDrink = Expression<String>("idDrink")
-            let strDrink = Expression<String>("strDrink")
-            let strCategory = Expression<String>("strCategory")
-            let strAlcoholic = Expression<String>("strAlcoholic")
-            let strDrinkThumb = Expression<String>("strDrinkThumb")
-            let strIngredient1 = Expression<String>("strIngredient1")
-            let strIngredient2 = Expression<String>("strIngredient2")
-            let strIngredient3 = Expression<String>("strIngredient3")
-            let strIngredient4 = Expression<String>("strIngredient4")
-            let strIngredient5 = Expression<String>("strIngredient5")
-            let strIngredient6 = Expression<String>("strIngredient6")
-            let strIngredient7 = Expression<String>("strIngredient7")
-            let strIngredient8 = Expression<String>("strIngredient8")
-            let strIngredient9 = Expression<String>("strIngredient9")
-            let strIngredient10 = Expression<String>("strIngredient10")
-            let strIngredient11 = Expression<String>("strIngredient11")
-            let strImageSource = Expression<String>("strImageSource")
-            let strImageAttribution = Expression<String>("strImageAttribution")
-
-            let insert = table.insert(
-                idDrink <- drink.idDrink!,
-                strDrink <- drink.strDrink!,
-                strCategory <- drink.strCategory!,
-                strAlcoholic <- drink.strAlcoholic!,
-                strDrinkThumb <- drink.strDrinkThumb!,
-                strIngredient1 <- drink.strIngredient1!,
-                strIngredient2 <- drink.strIngredient2!,
-                strIngredient3 <- drink.strIngredient3!,
-                strIngredient4 <- drink.strIngredient4!,
-                strIngredient5 <- drink.strIngredient5!,
-                strIngredient6 <- drink.strIngredient6!,
-                strIngredient7 <- drink.strIngredient7!,
-                strIngredient8 <- drink.strIngredient8!,
-                strIngredient9 <- drink.strIngredient9!,
-                strIngredient10 <- drink.strIngredient10!,
-                strIngredient11 <- drink.strIngredient11!,
-                strImageSource <- drink.strImageSource!,
-                strImageAttribution <- drink.strImageAttribution!
-            )
-            
-            try db?.run(insert)
-            print("Insert succeeded")
-        } catch {
-            print("Insert failed: \(error)")
+        let myDrinkIDs = fetchMyDrinkIDs()
+        
+        if !myDrinkIDs.contains(drink.idDrink!) {
+            do {
+                let table = Table("MyDrinks")
+                let idDrink = Expression<String>("idDrink")
+                let strDrink = Expression<String>("strDrink")
+                let strCategory = Expression<String>("strCategory")
+                let strAlcoholic = Expression<String>("strAlcoholic")
+                let strDrinkThumb = Expression<String>("strDrinkThumb")
+                let strIngredient1 = Expression<String>("strIngredient1")
+                let strIngredient2 = Expression<String>("strIngredient2")
+                let strIngredient3 = Expression<String>("strIngredient3")
+                let strIngredient4 = Expression<String>("strIngredient4")
+                let strIngredient5 = Expression<String>("strIngredient5")
+                let strIngredient6 = Expression<String>("strIngredient6")
+                let strIngredient7 = Expression<String>("strIngredient7")
+                let strIngredient8 = Expression<String>("strIngredient8")
+                let strIngredient9 = Expression<String>("strIngredient9")
+                let strIngredient10 = Expression<String>("strIngredient10")
+                let strIngredient11 = Expression<String>("strIngredient11")
+                let strImageSource = Expression<String>("strImageSource")
+                let strImageAttribution = Expression<String>("strImageAttribution")
+                
+                let insert = table.insert(
+                    idDrink <- drink.idDrink!,
+                    strDrink <- drink.strDrink!,
+                    strCategory <- drink.strCategory!,
+                    strAlcoholic <- drink.strAlcoholic!,
+                    strDrinkThumb <- drink.strDrinkThumb!,
+                    strIngredient1 <- drink.strIngredient1!,
+                    strIngredient2 <- drink.strIngredient2!,
+                    strIngredient3 <- drink.strIngredient3!,
+                    strIngredient4 <- drink.strIngredient4!,
+                    strIngredient5 <- drink.strIngredient5!,
+                    strIngredient6 <- drink.strIngredient6!,
+                    strIngredient7 <- drink.strIngredient7!,
+                    strIngredient8 <- drink.strIngredient8!,
+                    strIngredient9 <- drink.strIngredient9!,
+                    strIngredient10 <- drink.strIngredient10!,
+                    strIngredient11 <- drink.strIngredient11!,
+                    strImageSource <- drink.strImageSource!,
+                    strImageAttribution <- drink.strImageAttribution!
+                )
+                
+                try db?.run(insert)
+                print("Insert succeeded")
+            } catch {
+                print("Insert failed: \(error)")
+            }
         }
     }
 
@@ -200,5 +204,16 @@ class Database {
         } catch {
             print("Delete failed: \(error)")
         }
+    }
+    
+    func fetchMyDrinkIDs() -> [String] {
+        var myDrinkIDs: [String] = []
+        let myDrinks = query()
+        
+        for drink in myDrinks {
+            myDrinkIDs.append(drink.idDrink)
+        }
+        
+        return myDrinkIDs
     }
 }

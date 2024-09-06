@@ -64,7 +64,7 @@ struct BasePreviewView: View {
                             .background(Color("BWAccent"))
                             .cornerRadius(10)
                             
-                            DrinkInfoButtonView(drink: drink)
+                            DrinkInfoButtonView(drink: drink, getDrinks: {})
                         }
                     }
                     

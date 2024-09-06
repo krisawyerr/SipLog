@@ -15,6 +15,7 @@ struct DrinkInfoView: View {
     var ingredients: [String] {
         dataLoader.listIngredients(drink: drink)
     }
+    var getDrinks: () -> Void
     
     var body: some View {
         ScrollView {
@@ -40,8 +41,9 @@ struct DrinkInfoView: View {
                     Spacer()
                     
                     Button(action: {
-                        print("Custom button action")
                         db.insertDrink(drink: drink)
+                        getDrinks()
+                        dismiss() 
                     }) {
                         Image(systemName: "plus")
                     }
@@ -55,7 +57,6 @@ struct DrinkInfoView: View {
                     .frame(height: 1)
                     .background(Color("LogoColor"))
 
-                    
                 Text("Ingredients:")
                     .font(.custom("PaytoneOne-Regular", size: 25))
                     .foregroundColor(Color("BWText"))

@@ -47,17 +47,6 @@ struct BaseDrinkListView: View {
                                 }
                                 .padding(.horizontal, 10.0)
                                 .frame(maxWidth: .infinity, maxHeight: 300)
-                                
-//                                Button(action: {
-//                                    print("Custom button action")
-//                                    db.insertDrink(drink: drink)
-//                                }) {
-//                                    Image(systemName: "plus")
-//                                }
-//                                .padding(5.0)
-//                                .foregroundColor(Color("BWAccent"))
-//                                .background(Color("LogoColor"))
-//                                .cornerRadius(5)
                             }
                             .padding(.trailing)
                             .frame(maxWidth: .infinity)
@@ -65,7 +54,7 @@ struct BaseDrinkListView: View {
                             .background(Color("BWAccent"))
                             .cornerRadius(10)
                             
-                            DrinkInfoButtonView(drink: drink)
+                            DrinkInfoButtonView(drink: drink, getDrinks: {})
                         }
                     }
                 }

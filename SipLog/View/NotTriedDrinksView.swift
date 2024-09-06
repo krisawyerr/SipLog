@@ -11,8 +11,10 @@ struct NotTriedDrinksView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var searchText = ""
     var dataLoader = DataLoader()
-    var drinks: [DrinksModel] {
-        dataLoader.filterDrinks(data: dataLoader.fetchNotTriedCocktails(), searchText: searchText)
+    @State var drinks: [DrinksModel] = []
+    
+    func getDrinks() {
+        drinks = dataLoader.filterDrinks(data: dataLoader.fetchNotTriedCocktails(), searchText: searchText)
     }
     
     var body: some View {
@@ -50,12 +52,19 @@ struct NotTriedDrinksView: View {
                             .frame(height: 100)
                             .background(Color("BWAccent"))
                             .cornerRadius(10)
+                            
+                            DrinkInfoButtonView(drink: drink) {
+                                getDrinks()
+                            }
                         }
                     }
                 }
                 .padding(.horizontal, 25.0)
                 .padding(.top, 10.0)
             }
+        }
+        .onAppear {
+            getDrinks()
         }
         .navigationBarBackButtonHidden(true)
         .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for a drink")
@@ -88,8 +97,8 @@ struct NotTriedDrinksView: View {
             }
         }
     }
-
 }
+
 
 #Preview {
     ProfileView()

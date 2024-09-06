@@ -12,8 +12,9 @@ struct MyDrinksView: View {
     @State var searchText = ""
     var db = Database()
     var dataLoader = DataLoader()
-    var drinks: [MyDrinksModel] {
-        dataLoader.filterDrinks(data: db.query(), searchText: searchText)
+    @State var drinks: [MyDrinksModel] = []
+    func getDrinks() {
+        drinks = dataLoader.filterDrinks(data: db.query(), searchText: searchText)
     }
     
     var body: some View {
@@ -45,6 +46,19 @@ struct MyDrinksView: View {
                                 }
                                 .padding(.horizontal, 10.0)
                                 .frame(maxWidth: .infinity, maxHeight: 300)
+                                
+                                Button(action: {
+                                    print("Custom button action")
+                                    db.delete(drink: drink)
+                                    getDrinks()
+                                }) {
+                                    Image(systemName: "minus")
+                                }
+                                .padding(.horizontal, 5.0)
+                                .padding(.vertical, 12.0)
+                                .foregroundColor(Color("BWAccent"))
+                                .background(Color("LogoColor"))
+                                .cornerRadius(5)
                             }
                             .padding(.trailing)
                             .frame(maxWidth: .infinity)
@@ -57,6 +71,9 @@ struct MyDrinksView: View {
                 .padding(.horizontal, 25.0)
                 .padding(.top, 10.0)
             }
+        }
+        .onAppear {
+            getDrinks()
         }
         .navigationBarBackButtonHidden(true)
         .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for a drink")

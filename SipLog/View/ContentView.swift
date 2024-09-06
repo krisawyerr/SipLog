@@ -39,7 +39,7 @@ struct ContentView: View {
                         .background(Color("BWAccent"))
                         .clipShape(RoundedRectangle(cornerRadius: 5))
                         
-                        DrinkInfoButtonView(drink: dataLoader.picSOTM())
+                        DrinkInfoButtonView(drink: dataLoader.picSOTM(), getDrinks: {})
                     }
                     
                     Divider()
